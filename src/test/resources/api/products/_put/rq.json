@@ -1,0 +1,10 @@
+{
+  "id": "2",
+  "title": "EEEEE",
+  "description": "Desc product 2",
+  "price": 999.00,
+  "rating": 5.4,
+  "stock": 20,
+  "brand": "brand",
+  "category": "category"
+}
