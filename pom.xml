@@ -22,6 +22,8 @@
 		<java.version>11</java.version>
 		<zebrunner-agent.version>1.9.6</zebrunner-agent.version>
 		<suite>helloWorld</suite>
+		<maven.compiler.target>1.12</maven.compiler.target>
+		<maven.compiler.source>1.12</maven.compiler.source>
 	</properties>
 
 	<repositories>
@@ -40,6 +42,13 @@
 	</repositories>
 
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-chrome-driver -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-chrome-driver</artifactId>
+			<version>4.17.0</version>
+		</dependency>
+
 		<dependency>
 			<groupId>com.zebrunner</groupId>
 			<artifactId>carina-core</artifactId>

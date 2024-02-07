@@ -5,6 +5,9 @@ import com.solvd.carina.demo.gui.twitch.components.LogInForm;
 import com.solvd.carina.demo.gui.twitch.components.SignUpForm;
 import com.solvd.carina.demo.gui.twitch.pages.HomePage;
 import com.zebrunner.carina.core.IAbstractTest;
+import com.zebrunner.carina.utils.R;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
@@ -12,9 +15,16 @@ import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 public class WebTwitchTest implements IAbstractTest {
+    private final WebDriver driver = new ChromeDriver();
+
+    static {
+        System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
+    }
+
     @Test(dataProvider = "LogInUsers")
     public void logInTest(String name, String password) {
-        HomePage homePage = new HomePage(getDriver());
+        driver.get(R.CONFIG.get("url"));
+        HomePage homePage = new HomePage(driver);
         homePage.open();
         LogInForm logInForm = homePage.getHeader().clickLogInButton();
         logInForm.typeUsername(name);
@@ -26,6 +36,7 @@ public class WebTwitchTest implements IAbstractTest {
 
     @Test
     public void singUpTest() {
+        driver.get(R.CONFIG.get("url"));
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         SignUpForm signUpForm = homePage.getHeader().clickSignUpButton();
@@ -44,6 +55,7 @@ public class WebTwitchTest implements IAbstractTest {
 
     @Test
     public void searchTest() {
+        driver.get(R.CONFIG.get("url"));
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         Header header = homePage.getHeader();
@@ -53,6 +65,7 @@ public class WebTwitchTest implements IAbstractTest {
 
     @Test
     public void darkThemeTest() {
+        driver.get(R.CONFIG.get("url"));
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
         Header header = homePage.getHeader();
