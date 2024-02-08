@@ -15,16 +15,9 @@ import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 public class WebTwitchTest implements IAbstractTest {
-    private final WebDriver driver = new ChromeDriver();
-
-    static {
-        System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
-    }
-
     @Test(dataProvider = "LogInUsers")
     public void logInTest(String name, String password) {
-        driver.get(R.CONFIG.get("url"));
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage(getDriver());
         homePage.open();
         LogInForm logInForm = homePage.getHeader().clickLogInButton();
         logInForm.typeUsername("fausv");
@@ -32,13 +25,11 @@ public class WebTwitchTest implements IAbstractTest {
         logInForm.clickLogInButton();
         assertTrue(logInForm.isUsernameErrorMessagePresent(),"Username error message isn't present");
         assertTrue(logInForm.isPasswordErrorMessagePresent(),"Password error message isn't present");
-//        driver.quit();
     }
 
     @Test
     public void singUpTest() {
-        driver.get(R.CONFIG.get("url"));
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage(getDriver());
         homePage.open();
 
         SignUpForm signUpForm = homePage.getHeader().clickSignUpButton();
@@ -57,30 +48,25 @@ public class WebTwitchTest implements IAbstractTest {
         assertTrue(signUpForm.isInvalidDateErrorPresent(),"Birth error message isn't present");
 
         signUpForm.clickSignUpButton();
-//        driver.quit();
     }
 
     @Test
     public void searchTest() {
-        driver.get(R.CONFIG.get("url"));
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage(getDriver());
         homePage.open();
         Header header = homePage.getHeader();
         header.typeSearchInput("csgo");
         header.clickSearchButton();
-//        driver.quit();
     }
 
     @Test
     public void darkThemeTest() {
-        driver.get(R.CONFIG.get("url"));
-        HomePage homePage = new HomePage(driver);
+        HomePage homePage = new HomePage(getDriver());
         homePage.open();
         Header header = homePage.getHeader();
         header.clickUserMenuButton().clickThemeToggle();
         assertTrue(header.isDarkThemeActive(),"Dark theme isn't active");
         assertFalse(header.isDarkThemeActive(), "Dark theme is active");
-//        driver.quit();
     }
 
     @DataProvider(name = "LogInUsers")

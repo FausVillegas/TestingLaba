@@ -84,64 +84,12 @@ public class SignUpForm extends AbstractUIObject {
         phoneInput.type(String.valueOf(number));
     }
 
-    public ExtendedWebElement getUsernameInput() {
-        return usernameInput;
-    }
-
     public void clickSignUpButton(){
         signUpButton.click();
     }
 
     public void clickSignUpNextButton(){
         signupNextButton.click();
-    }
-
-    public ExtendedWebElement getPasswordInput() {
-        return passwordInput;
-    }
-
-    public ExtendedWebElement getPasswordInputConfirmation() {
-        return passwordInputConfirmation;
-    }
-
-    public ExtendedWebElement getBirthdayMonthSelect() {
-        return birthdayMonthSelect;
-    }
-
-    public ExtendedWebElement getBirthdayDayInput() {
-        return birthdayDayInput;
-    }
-
-    public ExtendedWebElement getBirthdayYearInput() {
-        return birthdayYearInput;
-    }
-
-    public ExtendedWebElement getSignUpButton() {
-        return signUpButton;
-    }
-
-    public ExtendedWebElement getUsernameUnavailableError() {
-        return usernameUnavailableError;
-    }
-
-    public ExtendedWebElement getShortPasswordError() {
-        return shortPasswordError;
-    }
-
-    public ExtendedWebElement getCommonPasswordError() {
-        return commonPasswordError;
-    }
-
-    public ExtendedWebElement getPasswordsNotMatchError() {
-        return passwordsNotMatchError;
-    }
-
-    public ExtendedWebElement getInvalidDateError() {
-        return invalidDateError;
-    }
-
-    public ExtendedWebElement getPhoneInput() {
-        return phoneInput;
     }
 
     //Error messages

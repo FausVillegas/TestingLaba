@@ -72,36 +72,8 @@ public class Header extends AbstractUIObject {
         return darkThemePage.isElementPresent();
     }
 
-    public ExtendedWebElement getLogInButton() {
-        return logInButton;
-    }
-
-    public LogInForm getLogInForm() {
-        return logInForm;
-    }
-
-    public ExtendedWebElement getDarkThemePage() {
-        return darkThemePage;
-    }
-
-    public ExtendedWebElement getSignUpButton() {
-        return signUpButton;
-    }
-
     public SignUpForm getSignUpForm() {
         return signUpForm;
-    }
-
-    public ExtendedWebElement getSearchInput() {
-        return searchInput;
-    }
-
-    public ExtendedWebElement getSearchButton() {
-        return searchButton;
-    }
-
-    public ExtendedWebElement getUserMenuButton() {
-        return userMenuButton;
     }
 
     public UserMenu getUserMenu() {

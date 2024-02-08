@@ -50,23 +50,4 @@ public class LogInForm extends AbstractUIObject {
         return passwordErrorMessage.isElementPresent();
     }
 
-    public ExtendedWebElement getUsernameInput() {
-        return usernameInput;
-    }
-
-    public ExtendedWebElement getPasswordInput() {
-        return passwordInput;
-    }
-
-    public ExtendedWebElement getLogInButton() {
-        return logInButton;
-    }
-
-    public ExtendedWebElement getUsernameErrorMessage() {
-        return usernameErrorMessage;
-    }
-
-    public ExtendedWebElement getPasswordErrorMessage() {
-        return passwordErrorMessage;
-    }
 }

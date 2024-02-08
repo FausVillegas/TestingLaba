@@ -21,8 +21,4 @@ public class UserMenu extends AbstractUIObject {
     public void clickThemeToggle() {
         darkThemeInput.click();
     }
-
-    public ExtendedWebElement getDarkThemeInput() {
-        return darkThemeInput;
-    }
 }
