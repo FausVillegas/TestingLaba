@@ -17,26 +17,32 @@ public class Header extends AbstractUIObject {
     @FindBy(xpath = "//button[@data-a-target='signup-button']")
     private ExtendedWebElement signUpButton;
 
-    @FindBy(xpath = "//*[text()=\"Log in to Twitch\"]/../../../../../../../..")
+    @FindBy(xpath = "//*[@data-a-target=\"passport-modal\"]")
     private LogInForm logInForm;
 
-    @FindBy(xpath = "//*[text()=\"Join Twitch today\"]/../../../../../../../..")
+    @FindBy(xpath = "//*[@data-a-target=\"passport-modal\"]")
     private SignUpForm signUpForm;
 
-    @FindBy(xpath = "//input[@id=\"tw-83e47923c5910b1425cbe7a7fb0681d7\"]")
+//    @FindBy(xpath = "//input[@id=\"tw-83e47923c5910b1425cbe7a7fb0681d7\" or ]")
+    @FindBy(xpath = "//*[@aria-label=\"Entrada de búsqueda\"]")
     private ExtendedWebElement searchInput;
 
-    @FindBy(xpath = "//button[@aria-label=\"Search Button\"]")
+    @FindBy(xpath = "//*[@icon=\"NavSearch\"]")
     private ExtendedWebElement searchButton;
 
-    @FindBy(xpath = "//button[@aria-label=\"User Menu\"]")
+    @FindBy(xpath = "//button[@aria-label=\"User Menu\" or @aria-label=\"Menú de usuario\"]")
     private ExtendedWebElement userMenuButton;
 
-    @FindBy(css = "div[aria-label=\"User Menu Options\"]")
+//    @FindBy(css = "div[data-popper-placement=\"bottom-end\"]")
+    @FindBy(xpath = "//div[@data-popper-placement=\"bottom-end\"]")
     private UserMenu userMenu;
 
     public Header(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
+    }
+
+    public Header(WebDriver driver) {
+        super(driver);
     }
 
     public LogInForm clickLogInButton(){

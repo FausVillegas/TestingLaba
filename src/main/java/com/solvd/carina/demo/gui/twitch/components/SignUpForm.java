@@ -22,7 +22,7 @@ public class SignUpForm extends AbstractUIObject {
     @FindBy(xpath = "//p[text()=\"Please enter a valid date.\"]")
     private ExtendedWebElement invalidDateError;
 
-    @FindBy(xpath = "//input[@id=\"login-username\"]")
+    @FindBy(xpath = "//input[@id=\"signup-username\"]")
     private ExtendedWebElement usernameInput;
 
     @FindBy(xpath = "//input[@id='password-input']")
@@ -34,10 +34,10 @@ public class SignUpForm extends AbstractUIObject {
     @FindBy(xpath = "//select[@data-a-target='birthday-month-select']")
     private ExtendedWebElement birthdayMonthSelect;
 
-    @FindBy(xpath = "//input[@placeholder=\"Day\"]")
+    @FindBy(xpath = "//input[@placeholder=\"Day\" or @placeholder=\"Día\"]")
     private ExtendedWebElement birthdayDayInput;
 
-    @FindBy(xpath = "//input[@placeholder=\"Year\"]")
+    @FindBy(xpath = "//input[@placeholder=\"Year\" or @placeholder=\"Año\"]")
     private ExtendedWebElement birthdayYearInput;
 
     @FindBy(xpath = "//input[@id=\"phone-input\"]")
@@ -46,8 +46,15 @@ public class SignUpForm extends AbstractUIObject {
     @FindBy(xpath = "//button[@screen=\"signup_form\"]")
     private ExtendedWebElement signUpButton;
 
-    protected SignUpForm(WebDriver driver, SearchContext searchContext) {
+    @FindBy(xpath = "//*[@data-a-target=\"segmented-signup-next-button\"]")
+    private ExtendedWebElement signupNextButton;
+
+    public SignUpForm(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
+    }
+
+    public SignUpForm(WebDriver driver) {
+        super(driver);
     }
 
     public void typeUsername(String username) {
@@ -83,6 +90,10 @@ public class SignUpForm extends AbstractUIObject {
 
     public void clickSignUpButton(){
         signUpButton.click();
+    }
+
+    public void clickSignUpNextButton(){
+        signupNextButton.click();
     }
 
     public ExtendedWebElement getPasswordInput() {

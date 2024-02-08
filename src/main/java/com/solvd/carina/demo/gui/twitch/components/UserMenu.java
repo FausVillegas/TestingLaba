@@ -14,6 +14,10 @@ public class UserMenu extends AbstractUIObject {
         super(driver, searchContext);
     }
 
+    public UserMenu(WebDriver driver) {
+        super(driver);
+    }
+
     public void clickThemeToggle() {
         darkThemeInput.click();
     }
